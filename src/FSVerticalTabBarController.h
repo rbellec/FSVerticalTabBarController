@@ -15,7 +15,7 @@
 
 @protocol FSTabBarControllerDelegate <NSObject>
 @optional
-- (void)tabBarController:(FSVerticalTabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+- (void)tabBarController:(FSVerticalTabBarController *)tabBarController didSelectViewController:(   UIViewController *)viewController;
 - (BOOL)tabBarController:(FSVerticalTabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController;
 @end
 
@@ -23,12 +23,13 @@
 @interface FSVerticalTabBarController : UIViewController <UITableViewDelegate>
 
 
-@property (nonatomic, readwrite, assign) id<FSTabBarControllerDelegate> delegate;
-@property (nonatomic, readwrite, strong) FSVerticalTabBar *tabBar;
-@property (nonatomic, readwrite, copy) NSArray *viewControllers;
-@property (nonatomic, readwrite, assign) UIViewController *selectedViewController;
-@property (nonatomic, readwrite, assign) NSUInteger selectedIndex;
-@property (nonatomic, readwrite, assign) CGFloat tabBarWidth;
+@property (nonatomic, readwrite, assign) id<FSTabBarControllerDelegate>     delegate;
+
+@property (nonatomic, readwrite, strong) FSVerticalTabBar   *tabBar                 ;
+@property (nonatomic, readwrite,   copy) NSArray            *viewControllers        ;
+@property (nonatomic, readwrite, assign) UIViewController   *selectedViewController ;
+@property (nonatomic, readwrite, assign) NSUInteger          selectedIndex          ;
+@property (nonatomic, readwrite, assign) CGFloat             tabBarWidth            ;
 
 
 - (void)setViewControllers:(NSArray *)viewControllers animated:(BOOL)animated;

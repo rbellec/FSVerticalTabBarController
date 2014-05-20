@@ -20,20 +20,20 @@
 @implementation FSVerticalTabBarController
 
 
-@synthesize delegate = _delegate;
-@synthesize tabBar = _tabBar;
-@synthesize viewControllers = _viewControllers;
-@synthesize selectedIndex = _selectedIndex;
-@synthesize tabBarWidth = _tabBarWidth;
+@synthesize delegate        = _delegate         ;
+@synthesize tabBar          = _tabBar           ;
+@synthesize viewControllers = _viewControllers  ;
+@synthesize selectedIndex   = _selectedIndex    ;
+@synthesize tabBarWidth     = _tabBarWidth      ;
 
 
 - (FSVerticalTabBar *)tabBar
 {
     if (_tabBar == nil)
     {
-        _tabBar = [[FSVerticalTabBar alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-        _tabBar.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleRightMargin;
-        _tabBar.delegate = self;
+        _tabBar                  = [[FSVerticalTabBar alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+        _tabBar.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin;
+        _tabBar.delegate         = self;
     }
     return _tabBar;
 }
@@ -56,7 +56,7 @@
     
     // select first VC from the new array
     // sets the value for the first time as -1 for the viewController to load itself properly
-    _selectedIndex = NSNotFound;
+    _selectedIndex     = NSNotFound;
     
     self.selectedIndex = [viewControllers count] > 0 ? 0 : INT_MAX;
 }
@@ -158,12 +158,12 @@
 
 - (void)loadView
 {
-    UIView *layoutContainerView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    layoutContainerView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    UIView *layoutContainerView             = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    layoutContainerView.autoresizingMask    = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
     layoutContainerView.autoresizesSubviews = YES;
     
     // create tab bar
-    self.tabBar.frame = CGRectMake(0, 0, self.tabBarWidth, layoutContainerView.bounds.size.height);
+    self.tabBar.frame  = CGRectMake(0, 0, self.tabBarWidth, layoutContainerView.bounds.size.height);
     [layoutContainerView addSubview:self.tabBar];
     
     // return a ready view
