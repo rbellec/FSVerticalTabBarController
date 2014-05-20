@@ -17,10 +17,10 @@
 @implementation FSVerticalTabBar
 
 
-@synthesize items = _items;
-@synthesize backgroundImage = _backgroundImage;
-@synthesize selectedImageTintColor = _selectedImageTintColor;
-@synthesize selectionIndicatorImage = _selectionIndicatorImage;
+@synthesize items                    = _items                   ;
+@synthesize backgroundImage          = _backgroundImage         ;
+@synthesize selectedImageTintColor   = _selectedImageTintColor  ;
+@synthesize selectionIndicatorImage  = _selectionIndicatorImage ;
 @synthesize backgroundGradientColors = _backgroundGradientColors;
 
 - (void)setItems:(NSArray *)items
@@ -51,7 +51,7 @@
         _backgroundGradientColors = colors;
         
         if (!self.backgroundView) {
-            self.backgroundView = [UIView new];
+            self.backgroundView  = [UIView  new       ];
             self.backgroundColor = [UIColor clearColor];
             
         }
@@ -84,9 +84,9 @@
     // apply changes
     if (UIEdgeInsetsEqualToEdgeInsets(backgroundImage.capInsets,UIEdgeInsetsZero)) // aka non resizable image
     {
-        self.backgroundView = [UIView new];
-        self.backgroundColor = [UIColor clearColor];
-        self.backgroundView.backgroundColor = [UIColor colorWithPatternImage:backgroundImage]; // tile background with the image
+        self.backgroundView                 = [UIView   new         ];
+        self.backgroundColor                = [UIColor  clearColor  ];
+        self.backgroundView.backgroundColor = [UIColor  colorWithPatternImage:backgroundImage]; // tile background with the image
     }
     else
     {
@@ -129,14 +129,14 @@
     self = [super initWithFrame:frame style:UITableViewStylePlain];
     if (self)
     {
-        self.dataSource = self;
-        self.rowHeight = DEFAULT_ITEM_HEIGHT;
+        self.dataSource     = self;
+        self.rowHeight      = DEFAULT_ITEM_HEIGHT;
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         // set default selection image
         UIImage *defaultSelectionIndicatorImage = [UIImage imageNamed:@"selectionIndicatorImage"];
-        defaultSelectionIndicatorImage = [defaultSelectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(2, 6, 2, 6)];
-        _selectionIndicatorImage = defaultSelectionIndicatorImage;
+        defaultSelectionIndicatorImage          = [defaultSelectionIndicatorImage resizableImageWithCapInsets:UIEdgeInsetsMake(2, 6, 2, 6)];
+        _selectionIndicatorImage                = defaultSelectionIndicatorImage;
     }
     return self;
 }
@@ -159,7 +159,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *vtbci = @"vtbci";
+    NSString *vtbci = @"vtbci";                                                             // for vertical table view cell identifier
     FSVerticalTabBarButton *cell = [tableView dequeueReusableCellWithIdentifier:vtbci];
     if (cell == nil)
     {
@@ -168,9 +168,9 @@
     
     cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:self.selectionIndicatorImage];
     
-    UITabBarItem *item = [self.items objectAtIndex:indexPath.row];
+    UITabBarItem *item  = [self.items objectAtIndex:indexPath.row];
     cell.textLabel.text = item.title;
-    cell.iconImage = item.image;
+    cell.iconImage      = item.image;
     
     return cell;
 }
