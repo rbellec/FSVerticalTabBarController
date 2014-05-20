@@ -22,19 +22,22 @@
     [super viewDidLoad];
     self.delegate = self;
     
-    //Create view controllers
-    NSMutableArray* controllersToAdd = [[NSMutableArray alloc] init];
+    // Create view controllers
+    NSMutableArray* controllersToAdd = [[NSMutableArray   alloc] init];
     for (int i=0; i<4; i++) {
-        UIViewController * view = [[UIViewController alloc] init];
-        NSString * title = [NSString stringWithFormat:@"tab %d", i+1];
-        view.tabBarItem = [[UITabBarItem alloc] initWithTitle:title image:[UIImage imageNamed:@"magnifying-glass.png"] tag: 0];
+        // Do it the usual way : a controller with title and a tabBarItem
+        NSString            * title  = [NSString stringWithFormat:@"tab %d", i+1];
+        UIViewController    * view   = [[UIViewController alloc] init];
+        view.tabBarItem              = [[UITabBarItem     alloc] initWithTitle:title image:[UIImage imageNamed:@"magnifying-glass.png"] tag: 0];
+        
         [controllersToAdd addObject:view];
     }
     
-    [((UIViewController*)[controllersToAdd objectAtIndex:0]).view setBackgroundColor:[UIColor blueColor]];
-    [((UIViewController*)[controllersToAdd objectAtIndex:1]).view setBackgroundColor:[UIColor redColor]];
-    [((UIViewController*)[controllersToAdd objectAtIndex:2]).view setBackgroundColor:[UIColor greenColor]];
-    [((UIViewController*)[controllersToAdd objectAtIndex:3]).view setBackgroundColor:[UIColor purpleColor]];
+    // Set a background color to each view
+    [((UIViewController*)[controllersToAdd objectAtIndex:0]).view setBackgroundColor:[UIColor blueColor     ]];
+    [((UIViewController*)[controllersToAdd objectAtIndex:1]).view setBackgroundColor:[UIColor redColor      ]];
+    [((UIViewController*)[controllersToAdd objectAtIndex:2]).view setBackgroundColor:[UIColor greenColor    ]];
+    [((UIViewController*)[controllersToAdd objectAtIndex:3]).view setBackgroundColor:[UIColor purpleColor   ]];
     
 
     viewControllers = [NSArray arrayWithArray:controllersToAdd];
